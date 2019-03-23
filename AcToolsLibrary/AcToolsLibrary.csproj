@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{62DB5412-87E4-4209-AFF9-C902AE4FBF7E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AcToolsLibrary</RootNamespace>
+    <AssemblyName>AcToolsLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>7.3</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AcDiff.cs" />
+    <Compile Include="Common\AcException.cs" />
+    <Compile Include="Common\AcHelper.cs" />
+    <Compile Include="Common\AcLogger.cs" />
+    <Compile Include="Common\AcStringToken.cs" />
+    <Compile Include="Common\AcStringTokenizer.cs" />
+    <Compile Include="Common\Windows\AcMouseHelper.cs" />
+    <Compile Include="Common\Windows\AcWinAPI.cs" />
+    <Compile Include="Core\Audio\MeguiCuts.cs" />
+    <Compile Include="Core\Hash\Crc32.cs" />
+    <Compile Include="Core\Hash\Ed2k.cs" />
+    <Compile Include="Core\Hash\Md4.cs" />
+    <Compile Include="Core\Hash\TTH.cs" />
+    <Compile Include="Core\Language\CountryCodeCCTLD.cs" />
+    <Compile Include="Core\Language\LanguageISO639-2.cs" />
+    <Compile Include="Core\MediaInfo\AcMediaInfo.cs" />
+    <Compile Include="Core\MediaInfo\AudioTrack.cs" />
+    <Compile Include="Core\MediaInfo\ChaptersTrack.cs" />
+    <Compile Include="Core\MediaInfo\GeneralTrack.cs" />
+    <Compile Include="Core\MediaInfo\TextTrack.cs" />
+    <Compile Include="Core\MediaInfo\VideoTrack.cs" />
+    <Compile Include="Core\Other\ChapterEditor.cs" />
+    <Compile Include="Core\Other\Patch.cs" />
+    <Compile Include="Core\Other\Patcher.cs" />
+    <Compile Include="Core\Parsers\AssParser.cs" />
+    <Compile Include="Core\Parsers\DuplicateParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Parsers\SectionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Parsers\TimeCodeParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssComparator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssLineEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssLineFont.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssLineGraphic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssLineStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssSectionEvents.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssSectionFonts.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssSectionGraphics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssSectionScriptInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\ASS\AssSectionStyles.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Subtitles\FormattedString.cs" />
+    <Compile Include="Core\Subtitles\SRT\SrtFile.cs" />
+    <Compile Include="Core\Subtitles\SRT\SrtLine.cs" />
+    <Compile Include="Core\Subtitles\StringFormats.cs" />
+    <Compile Include="Core\Video\BitrateCalculator.cs" />
+    <Compile Include="Core\Video\FrameRestorationProjectFile.cs" />
+    <Compile Include="Core\Video\FrameRestorer.cs" />
+    <Compile Include="Core\Video\Kienzan.cs" />
+    <Compile Include="Core\Video\Resizer.cs" />
+    <Compile Include="Core\Video\VideoProviders\AviSynth\AviSynthClip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\AviSynthException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\AviSynthFileCreator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\AviSynthScriptEnvironment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\AvsFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\VideoSourceProviders\AviSourceProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\VideoSourceProviders\AviSynthVideoSourceProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\VideoSourceProviders\DGAVCDecProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\VideoSourceProviders\DGMPGDecProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\VideoSourceProviders\DirectShowSource2Provider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\VideoSourceProviders\DirectShowSourceProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoProviders\AviSynth\VideoSourceProviders\FFMpegSource2Provider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoChapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoChapterDisplay.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoFrame.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoFrameList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoFrameListStat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoFrameSection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoPlayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoPlayerUpdateData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Video\VideoResolution.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ude\Ude.csproj">
+      <Project>{7becb850-389a-44fc-8523-3ef0b2540f07}</Project>
+      <Name>Ude</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

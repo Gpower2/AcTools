@@ -1,0 +1,49 @@
+General
+	DONE - Fix all forms for default Font Tahoma 8
+	-Redesign everything to use timecodes and fallback to fake timecodes on failure
+	
+AcForm
+
+AcSettings
+	-Make Number of decimal digits (timecodes analyser) a setting
+	-Make map threshold (duplicates analyser) a setting
+	
+Timecodes Analyser
+	
+Duplicate Analyser	
+	
+Video Player
+	-Make Player VFR aware
+	-Move all video player logic to the VideoPlayer object
+	-Make picture Box to zoom on its own/get rid of the ugly code for the resize
+	
+Kienzan
+	-Create Kiezan Project File
+	
+Resize Calculator
+	-Make Copy/Paste for Crop Values
+	-Make Copy/Paste for Dimensions Values
+	
+Frame Restoration	
+	-...
+	
+Section Editor
+	-Make Sort Button and method
+	
+Patcher	
+	DONE - Make patcher run on thread
+	DONE - Autocomplete diff file
+	
+Chapter Editor
+	DONE - Make form resizable
+	
+Hash Calculator
+	-Make form resizable
+	DONE - Add ED2K hash
+	
+Dubug File Form
+	DONE - On exception, form name should be normal and not LoggerForm
+	
+Settings Form
+	DONE - Change anchor of the Default Button
+	-Make buttons smaller

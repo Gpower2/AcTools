@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3B09429-FA69-443B-87E2-F8889B149FCF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AcTools</RootNamespace>
+    <AssemblyName>AcTools</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Graphics\Icons\actools.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AcTools.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonForms\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForms\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\AcClipboard.cs" />
+    <Compile Include="Core\AcForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\AcSettings.cs" />
+    <Compile Include="CommonForms\frmAviSynthVideoSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForms\frmAviSynthVideoSource.Designer.cs">
+      <DependentUpon>frmAviSynthVideoSource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForms\frmLogger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForms\frmLogger.Designer.cs">
+      <DependentUpon>frmLogger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Forms\frmAss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAss.Designer.cs">
+      <DependentUpon>frmAss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAviSynthEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAviSynthEditor.Designer.cs">
+      <DependentUpon>frmAviSynthEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBitrateCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBitrateCalculator.Designer.cs">
+      <DependentUpon>frmBitrateCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChapterEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChapterEditor.Designer.cs">
+      <DependentUpon>frmChapterEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChapterFromSections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChapterFromSections.Designer.cs">
+      <DependentUpon>frmChapterFromSections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDuplicateAnalyser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDuplicateAnalyser.Designer.cs">
+      <DependentUpon>frmDuplicateAnalyser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFrameRestoration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFrameRestoration.Designer.cs">
+      <DependentUpon>frmFrameRestoration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHashCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHashCalculator.Designer.cs">
+      <DependentUpon>frmHashCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmKienzan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmKienzan.Designer.cs">
+      <DependentUpon>frmKienzan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMeGUICutsCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMeGUICutsCreator.Designer.cs">
+      <DependentUpon>frmMeGUICutsCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPatcher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPatcher.Designer.cs">
+      <DependentUpon>frmPatcher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmResizeCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmResizeCalculator.Designer.cs">
+      <DependentUpon>frmResizeCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSectionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSectionEditor.Designer.cs">
+      <DependentUpon>frmSectionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTimeCodeAnalyser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTimeCodeAnalyser.Designer.cs">
+      <DependentUpon>frmTimeCodeAnalyser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTimeCodeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTimeCodeEditor.Designer.cs">
+      <DependentUpon>frmTimeCodeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmVideoPlayerCrop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmVideoPlayerCrop.Designer.cs">
+      <DependentUpon>frmVideoPlayerCrop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmVideoPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmVideoPlayer.Designer.cs">
+      <DependentUpon>frmVideoPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CommonForms\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\AcForm.resx">
+      <DependentUpon>AcForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForms\frmAviSynthVideoSource.resx">
+      <DependentUpon>frmAviSynthVideoSource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForms\frmLogger.resx">
+      <DependentUpon>frmLogger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAss.resx">
+      <DependentUpon>frmAss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAviSynthEditor.resx">
+      <DependentUpon>frmAviSynthEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBitrateCalculator.resx">
+      <DependentUpon>frmBitrateCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChapterEditor.resx">
+      <DependentUpon>frmChapterEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChapterFromSections.resx">
+      <DependentUpon>frmChapterFromSections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDuplicateAnalyser.resx">
+      <DependentUpon>frmDuplicateAnalyser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFrameRestoration.resx">
+      <DependentUpon>frmFrameRestoration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHashCalculator.resx">
+      <DependentUpon>frmHashCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmKienzan.resx">
+      <DependentUpon>frmKienzan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMeGUICutsCreator.resx">
+      <DependentUpon>frmMeGUICutsCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPatcher.resx">
+      <DependentUpon>frmPatcher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmResizeCalculator.resx">
+      <DependentUpon>frmResizeCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSectionEditor.resx">
+      <DependentUpon>frmSectionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTimeCodeAnalyser.resx">
+      <DependentUpon>frmTimeCodeAnalyser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTimeCodeEditor.resx">
+      <DependentUpon>frmTimeCodeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVideoPlayerCrop.resx">
+      <DependentUpon>frmVideoPlayerCrop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVideoPlayer.resx">
+      <DependentUpon>frmVideoPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcControls\AcControls.csproj">
+      <Project>{8863d0f0-f30e-47c2-893f-7dc5fc3d6226}</Project>
+      <Name>AcControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AcToolsLibrary\AcToolsLibrary.csproj">
+      <Project>{62db5412-87e4-4209-aff9-c902ae4fbf7e}</Project>
+      <Name>AcToolsLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Images\dragon18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Icons\FrameRestoration2 001.ico" />
+    <None Include="Graphics\Icons\ResizeCalculator.ico" />
+    <None Include="Graphics\Icons\Kienzan.ico" />
+    <None Include="Graphics\Icons\actools.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Graphics\Images\dragon_small.png" />
+    <Content Include="MediaInfo_x64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MediaInfo_x86.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xdelta3.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
