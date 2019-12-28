@@ -44,7 +44,7 @@ namespace AcTools.CommonForms
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 5000; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 Point originalMousePosition = Cursor.Position;
                 Int32 arrowX = 1080;

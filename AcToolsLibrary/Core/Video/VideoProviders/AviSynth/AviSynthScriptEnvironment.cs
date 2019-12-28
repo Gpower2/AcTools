@@ -19,7 +19,7 @@ namespace AcToolsLibrary.Core.Video.VideoProviders.AviSynth
 
         public AviSynthClip OpenScriptFile(string filePath, AviSynthColorspace forceColorspace)
         {
-            return new AviSynthClip("Import", filePath, forceColorspace, this);
+            return new AviSynthClip("Import", filePath, forceColorspace, this);            
         }
 
         public AviSynthClip ParseScript(string script)

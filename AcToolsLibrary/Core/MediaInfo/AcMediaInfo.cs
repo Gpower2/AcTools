@@ -208,7 +208,7 @@ namespace AcToolsLibrary.Core.MediaInfo
                 _MediaInfoDLL = LoadLibrary(_MediaInfoDLLPath);
                 if (_MediaInfoDLL == IntPtr.Zero)
                 {
-                    throw new Exception(String.Format("Could not load {0}!", _MediaInfoDLL));
+                    throw new Exception(String.Format("Could not load {0}!", _MediaInfoDLLPath));
                 }
             }
         }
@@ -219,7 +219,7 @@ namespace AcToolsLibrary.Core.MediaInfo
 
             if (pAddressOfFunctionToCall == IntPtr.Zero)
             {
-                throw new Exception(String.Format("Could not load function {0} from {1}!", typeof(T).Name, _MediaInfoDLL));
+                throw new Exception(String.Format("Could not load function {0} from {1}!", typeof(T).Name, _MediaInfoDLLPath));
             }
 
             Delegate method = Marshal.GetDelegateForFunctionPointer(pAddressOfFunctionToCall, typeof(T));
