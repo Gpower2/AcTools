@@ -63,7 +63,7 @@
             // chkDontDropFrames
             // 
             this.chkDontDropFrames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkDontDropFrames.Location = new System.Drawing.Point(6, 426);
+            this.chkDontDropFrames.Location = new System.Drawing.Point(6, 425);
             this.chkDontDropFrames.Name = "chkDontDropFrames";
             this.chkDontDropFrames.Size = new System.Drawing.Size(100, 17);
             this.chkDontDropFrames.TabIndex = 28;
@@ -73,7 +73,7 @@
             // btnSections
             // 
             this.btnSections.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSections.Location = new System.Drawing.Point(707, 403);
+            this.btnSections.Location = new System.Drawing.Point(707, 402);
             this.btnSections.Name = "btnSections";
             this.btnSections.Size = new System.Drawing.Size(55, 23);
             this.btnSections.TabIndex = 27;
@@ -84,7 +84,7 @@
             // btnInfo
             // 
             this.btnInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnInfo.Location = new System.Drawing.Point(653, 403);
+            this.btnInfo.Location = new System.Drawing.Point(653, 402);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(50, 23);
             this.btnInfo.TabIndex = 26;
@@ -95,7 +95,7 @@
             // btnCrop
             // 
             this.btnCrop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCrop.Location = new System.Drawing.Point(653, 435);
+            this.btnCrop.Location = new System.Drawing.Point(653, 434);
             this.btnCrop.Name = "btnCrop";
             this.btnCrop.Size = new System.Drawing.Size(50, 23);
             this.btnCrop.TabIndex = 25;
@@ -106,7 +106,7 @@
             // btnSaveScreenshot
             // 
             this.btnSaveScreenshot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSaveScreenshot.Location = new System.Drawing.Point(450, 435);
+            this.btnSaveScreenshot.Location = new System.Drawing.Point(450, 434);
             this.btnSaveScreenshot.Name = "btnSaveScreenshot";
             this.btnSaveScreenshot.Size = new System.Drawing.Size(60, 23);
             this.btnSaveScreenshot.TabIndex = 24;
@@ -117,7 +117,7 @@
             // btnGoToStart
             // 
             this.btnGoToStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGoToStart.Location = new System.Drawing.Point(110, 435);
+            this.btnGoToStart.Location = new System.Drawing.Point(110, 434);
             this.btnGoToStart.Name = "btnGoToStart";
             this.btnGoToStart.Size = new System.Drawing.Size(31, 23);
             this.btnGoToStart.TabIndex = 23;
@@ -128,7 +128,7 @@
             // btnGoToEnd
             // 
             this.btnGoToEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGoToEnd.Location = new System.Drawing.Point(296, 435);
+            this.btnGoToEnd.Location = new System.Drawing.Point(296, 434);
             this.btnGoToEnd.Name = "btnGoToEnd";
             this.btnGoToEnd.Size = new System.Drawing.Size(31, 23);
             this.btnGoToEnd.TabIndex = 22;
@@ -139,7 +139,7 @@
             // btnPlayVideo
             // 
             this.btnPlayVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPlayVideo.Location = new System.Drawing.Point(197, 435);
+            this.btnPlayVideo.Location = new System.Drawing.Point(197, 434);
             this.btnPlayVideo.Name = "btnPlayVideo";
             this.btnPlayVideo.Size = new System.Drawing.Size(43, 23);
             this.btnPlayVideo.TabIndex = 21;
@@ -150,7 +150,7 @@
             // btnBrowseVideoFile
             // 
             this.btnBrowseVideoFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBrowseVideoFile.Location = new System.Drawing.Point(265, 403);
+            this.btnBrowseVideoFile.Location = new System.Drawing.Point(265, 402);
             this.btnBrowseVideoFile.Name = "btnBrowseVideoFile";
             this.btnBrowseVideoFile.Size = new System.Drawing.Size(62, 23);
             this.btnBrowseVideoFile.TabIndex = 20;
@@ -161,7 +161,7 @@
             // btnReload
             // 
             this.btnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnReload.Location = new System.Drawing.Point(450, 403);
+            this.btnReload.Location = new System.Drawing.Point(450, 402);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(60, 23);
             this.btnReload.TabIndex = 18;
@@ -172,7 +172,7 @@
             // btnSmallForward
             // 
             this.btnSmallForward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSmallForward.Location = new System.Drawing.Point(241, 435);
+            this.btnSmallForward.Location = new System.Drawing.Point(241, 434);
             this.btnSmallForward.Name = "btnSmallForward";
             this.btnSmallForward.Size = new System.Drawing.Size(21, 23);
             this.btnSmallForward.TabIndex = 17;
@@ -183,7 +183,7 @@
             // btnSmallBack
             // 
             this.btnSmallBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSmallBack.Location = new System.Drawing.Point(175, 435);
+            this.btnSmallBack.Location = new System.Drawing.Point(175, 434);
             this.btnSmallBack.Name = "btnSmallBack";
             this.btnSmallBack.Size = new System.Drawing.Size(21, 23);
             this.btnSmallBack.TabIndex = 16;
@@ -194,7 +194,7 @@
             // btnCopyFrameNumber
             // 
             this.btnCopyFrameNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCopyFrameNumber.Location = new System.Drawing.Point(634, 403);
+            this.btnCopyFrameNumber.Location = new System.Drawing.Point(634, 402);
             this.btnCopyFrameNumber.Name = "btnCopyFrameNumber";
             this.btnCopyFrameNumber.Size = new System.Drawing.Size(15, 23);
             this.btnCopyFrameNumber.TabIndex = 15;
@@ -205,7 +205,7 @@
             // btnCopyFrameTime
             // 
             this.btnCopyFrameTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCopyFrameTime.Location = new System.Drawing.Point(634, 435);
+            this.btnCopyFrameTime.Location = new System.Drawing.Point(634, 434);
             this.btnCopyFrameTime.Name = "btnCopyFrameTime";
             this.btnCopyFrameTime.Size = new System.Drawing.Size(15, 23);
             this.btnCopyFrameTime.TabIndex = 14;
@@ -218,7 +218,7 @@
             this.cmbSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSize.FormattingEnabled = true;
-            this.cmbSize.Location = new System.Drawing.Point(332, 436);
+            this.cmbSize.Location = new System.Drawing.Point(332, 435);
             this.cmbSize.Name = "cmbSize";
             this.cmbSize.Size = new System.Drawing.Size(60, 21);
             this.cmbSize.TabIndex = 13;
@@ -226,7 +226,7 @@
             // txtVideoTime
             // 
             this.txtVideoTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtVideoTime.Location = new System.Drawing.Point(513, 436);
+            this.txtVideoTime.Location = new System.Drawing.Point(513, 435);
             this.txtVideoTime.Name = "txtVideoTime";
             this.txtVideoTime.ReadOnly = true;
             this.txtVideoTime.Size = new System.Drawing.Size(117, 21);
@@ -235,7 +235,7 @@
             // txtVideoFrame
             // 
             this.txtVideoFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtVideoFrame.Location = new System.Drawing.Point(513, 404);
+            this.txtVideoFrame.Location = new System.Drawing.Point(513, 403);
             this.txtVideoFrame.Name = "txtVideoFrame";
             this.txtVideoFrame.ReadOnly = true;
             this.txtVideoFrame.Size = new System.Drawing.Size(117, 21);
@@ -244,7 +244,7 @@
             // btnResetSize
             // 
             this.btnResetSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnResetSize.Location = new System.Drawing.Point(396, 435);
+            this.btnResetSize.Location = new System.Drawing.Point(396, 434);
             this.btnResetSize.Name = "btnResetSize";
             this.btnResetSize.Size = new System.Drawing.Size(53, 23);
             this.btnResetSize.TabIndex = 10;
@@ -255,7 +255,7 @@
             // btnHook
             // 
             this.btnHook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHook.Location = new System.Drawing.Point(708, 435);
+            this.btnHook.Location = new System.Drawing.Point(708, 434);
             this.btnHook.Name = "btnHook";
             this.btnHook.Size = new System.Drawing.Size(55, 23);
             this.btnHook.TabIndex = 9;
@@ -267,7 +267,7 @@
             // 
             this.trackVideo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackVideo.Location = new System.Drawing.Point(2, 352);
+            this.trackVideo.Location = new System.Drawing.Point(2, 351);
             this.trackVideo.Margin = new System.Windows.Forms.Padding(0);
             this.trackVideo.Name = "trackVideo";
             this.trackVideo.Size = new System.Drawing.Size(758, 45);
@@ -280,7 +280,7 @@
             // btnForward
             // 
             this.btnForward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnForward.Location = new System.Drawing.Point(263, 435);
+            this.btnForward.Location = new System.Drawing.Point(263, 434);
             this.btnForward.Name = "btnForward";
             this.btnForward.Size = new System.Drawing.Size(32, 23);
             this.btnForward.TabIndex = 6;
@@ -291,7 +291,7 @@
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBack.Location = new System.Drawing.Point(141, 435);
+            this.btnBack.Location = new System.Drawing.Point(141, 434);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(34, 23);
             this.btnBack.TabIndex = 5;
@@ -302,7 +302,7 @@
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOpen.Location = new System.Drawing.Point(396, 403);
+            this.btnOpen.Location = new System.Drawing.Point(396, 402);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(53, 23);
             this.btnOpen.TabIndex = 2;
@@ -314,7 +314,7 @@
             // 
             this.txtVideoFile.AllowDrop = true;
             this.txtVideoFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtVideoFile.Location = new System.Drawing.Point(6, 404);
+            this.txtVideoFile.Location = new System.Drawing.Point(6, 403);
             this.txtVideoFile.Name = "txtVideoFile";
             this.txtVideoFile.Size = new System.Drawing.Size(256, 21);
             this.txtVideoFile.TabIndex = 1;
@@ -339,7 +339,7 @@
             // chkAlwaysOnTop
             // 
             this.chkAlwaysOnTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkAlwaysOnTop.Location = new System.Drawing.Point(6, 443);
+            this.chkAlwaysOnTop.Location = new System.Drawing.Point(6, 442);
             this.chkAlwaysOnTop.Name = "chkAlwaysOnTop";
             this.chkAlwaysOnTop.Size = new System.Drawing.Size(100, 17);
             this.chkAlwaysOnTop.TabIndex = 29;
@@ -350,7 +350,7 @@
             // btnEditVideoFile
             // 
             this.btnEditVideoFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditVideoFile.Location = new System.Drawing.Point(332, 403);
+            this.btnEditVideoFile.Location = new System.Drawing.Point(332, 402);
             this.btnEditVideoFile.Name = "btnEditVideoFile";
             this.btnEditVideoFile.Size = new System.Drawing.Size(62, 23);
             this.btnEditVideoFile.TabIndex = 30;
@@ -364,7 +364,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(764, 462);
+            this.ClientSize = new System.Drawing.Size(764, 461);
             this.Controls.Add(this.btnEditVideoFile);
             this.Controls.Add(this.chkAlwaysOnTop);
             this.Controls.Add(this.chkDontDropFrames);

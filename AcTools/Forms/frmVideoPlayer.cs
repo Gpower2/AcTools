@@ -30,16 +30,17 @@ namespace AcTools.Forms
     public partial class frmVideoPlayer : AcForm
     {
         private AvsFile avs = null;
+        private VideoFrameList vfl = new VideoFrameList();
+        private bool videoOpened = false;
+        private bool videoPlaying = false;
+        private string fileOpened = String.Empty;
+        private string fileToOpen = String.Empty;
+        private Thread videoPlayThread = null;
+        private decimal frameRate = 0.0m;
+        private DateTime trackBarTooltipLastUpdate;
+
         private frmVideoPlayerCrop vpcf = null;
         private frmSectionEditor sef = null;
-        private VideoFrameList vfl = new VideoFrameList();
-        private Boolean videoOpened = false;
-        private Boolean videoPlaying = false;
-        private String fileOpened = String.Empty;
-        private String fileToOpen = String.Empty;
-        private Thread videoPlayThread = null;
-        private Decimal frameRate = 0.0m;
-        private DateTime trackBarTooltipLastUpdate;
 
         private Int32 curFrame = 0;
         private Int32 startPlayFrame = 0;
@@ -48,8 +49,10 @@ namespace AcTools.Forms
         private Int32 origPicVideoWidth = 0;
         private Int32 origPicVideoHeight = 0;
 
-        private static String formName = "Video Player";
-        private static UInt16 trackBarTooltipUpdateIntervall = 100;
+        private static readonly string formName = "Video Player";
+        private static readonly UInt16 trackBarTooltipUpdateIntervall = 100;
+
+        private bool _FromOpeningVideo = false;
 
         #region "Properties"
 
@@ -160,6 +163,7 @@ namespace AcTools.Forms
             try
             {
                 InitializeComponent();
+
                 InitColors();
                 InitControls();
                 InitIcon();
@@ -180,6 +184,7 @@ namespace AcTools.Forms
             try
             {
                 InitializeComponent();
+
                 InitColors();
                 InitControls();
                 InitIcon();
@@ -196,11 +201,15 @@ namespace AcTools.Forms
         private void Init()
         {
             this.Text = frmVideoPlayer.formName;
-            fillSizes();
+            FillVideoSizes();
             picVideo.AllowDrop = true;
             origPicVideoWidth = picVideo.Width;
             origPicVideoHeight = picVideo.Height;
             chkDontDropFrames.Checked = true;
+
+            // Set a large maximum size in order to be able to set the size above
+            // the maximum limits from the screen resolution
+            this.MaximumSize = new Size(4000, 2500);
         }
 
         /// <summary>
@@ -267,6 +276,8 @@ namespace AcTools.Forms
                         fileToOpen = avsfc.AviSynthScriptFilename;
                     }
                     // Open the Avisynth Script using Task in order to have a responsive UI
+                    
+                    _FromOpeningVideo = true;
                     using (Task t = Task.Factory.StartNew(() =>
                                 {
                                     avs = AvsFile.OpenScriptFile(fileToOpen);
@@ -290,11 +301,14 @@ namespace AcTools.Forms
                         }
                     }
                     videoOpened = true;
-                    //this.Width = avs.Clip.VideoWidth + this.Width - picVideo.Width;
-                    this.Width = avs.Clip.VideoWidth + this.MinimumSize.Width - origPicVideoWidth;
-                    //this.Height = avs.Clip.VideoHeight + this.Height - picVideo.Height;
-                    this.Height = avs.Clip.VideoHeight + this.MinimumSize.Height - origPicVideoHeight;
-                    //VideoPlayerForm_Resize(null, null);
+
+                    this.Size = new Size(
+                        avs.Clip.VideoWidth + (this.MinimumSize.Width - origPicVideoWidth)
+                        , avs.Clip.VideoHeight + (this.MinimumSize.Height - origPicVideoHeight)
+                    );
+                    
+                    ResizePictureBox();
+
                     this.frameRate = Convert.ToDecimal(avs.Clip.Raten) / Convert.ToDecimal(avs.Clip.Rated);
                     trackVideo.Maximum = avs.Clip.NumberOfFrames - 1;
                     trackVideo.Minimum = 0;
@@ -304,6 +318,8 @@ namespace AcTools.Forms
                     this.Text = frmVideoPlayer.formName + " - " + fileOpened;
                     txtVideoFile.Text = fileOpened;
                     ChangeVideoFrame(0, false);
+
+                    _FromOpeningVideo = false;
                 }
                 else
                 {
@@ -313,6 +329,7 @@ namespace AcTools.Forms
             catch (Exception)
             {
                 videoOpened = false;
+                _FromOpeningVideo = false;
                 throw;
             }
         }
@@ -798,7 +815,7 @@ namespace AcTools.Forms
             }
         }
 
-        private void fillSizes()
+        private void FillVideoSizes()
         {
             cmbSize.Items.Clear();
             cmbSize.Items.Add("200%");
@@ -1165,42 +1182,61 @@ namespace AcTools.Forms
         {
             try
             {
-                //Ensure that the video picture box will always have the correct size
-                int startHeight = this.Height - (this.MinimumSize.Height - origPicVideoHeight);
-                int startWidth = this.Width - (this.MinimumSize.Width - origPicVideoWidth);
-                //picVideo.Height = this.Height - (this.MinimumSize.Height - origPicVideoHeight);
-                //int height = picVideo.Height;
-
-                int height = videoOpened ?
-                    Convert.ToInt32(Convert.ToDouble(startWidth * avs.Clip.VideoHeight) / Convert.ToDouble(avs.Clip.VideoWidth))
-                    : startHeight;
-
-                int width = videoOpened ? 
-                    Convert.ToInt32(Convert.ToDouble(startHeight * avs.Clip.VideoWidth) / Convert.ToDouble(avs.Clip.VideoHeight))
-                    : startWidth;
-
-                if (startWidth > width)
+                // Check if we need to ignore the event
+                if (_FromOpeningVideo)
                 {
-                    picVideo.Height = startHeight;
-                    picVideo.Width = width;
+                    return;
                 }
-                else if (startWidth < width)
-                {
-                    picVideo.Height = height;
-                    picVideo.Width = startWidth;
-                }
-                else
-                {
-                    picVideo.Height = startHeight;
-                    picVideo.Width = startWidth;
-                }
-                picVideo.Location = new Point(2, 2);
-                picVideo.Refresh();
+
+                ResizePictureBox();
             }
             catch (Exception ex)
             {
                 ShowExceptionMessage(ex);
             }
+        }
+
+        private void ResizePictureBox() 
+        {
+            // Calculate the available picture box size according to the form's size
+            int maxWidth = this.Width - (this.MinimumSize.Width - origPicVideoWidth);
+            int maxHeight = this.Height - (this.MinimumSize.Height - origPicVideoHeight);
+
+            // Calculate the width according to the video size and the form's height
+            int calcWidth = videoOpened ?
+                Convert.ToInt32(Convert.ToDouble(maxHeight * avs.Clip.VideoWidth) / Convert.ToDouble(avs.Clip.VideoHeight))
+                : maxWidth;
+
+            // Calculate the height according to the video size and the form's height
+            int calcHeight = videoOpened ?
+                Convert.ToInt32(Convert.ToDouble(maxWidth * avs.Clip.VideoHeight) / Convert.ToDouble(avs.Clip.VideoWidth))
+                : maxHeight;
+
+            // Check if the calculated width is bigger than the available max width
+            if (calcWidth > maxWidth)
+            {
+                // Set the picturebox width to the available max width
+                picVideo.Width = maxWidth;
+                // Set the picturebox height to the calculated height
+                picVideo.Height = calcHeight;
+            }
+            else if (calcHeight > maxHeight)
+            {
+                // Set the picturebox width to the calculated width
+                picVideo.Width = calcWidth;
+                // Set the picturebox height to the available max height
+                picVideo.Height = maxHeight;
+            }
+            else
+            {
+                // Set the picturebox size to the available max size
+                picVideo.Height = maxHeight;
+                picVideo.Width = maxWidth;
+            }
+            // Set the picturebox location
+            picVideo.Location = new Point(2, 2);
+            // Refresh the picturebox
+            picVideo.Refresh();
         }
 
         private void chkAlwaysOnTop_CheckedChanged(object sender, EventArgs e)

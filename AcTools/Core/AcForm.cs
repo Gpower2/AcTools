@@ -10,6 +10,7 @@ using AcControls.AcRichTextBoxControl;
 using AcControls.AcMessageBox;
 
 using AcToolsLibrary.Common;
+using System.Runtime.InteropServices;
 
 namespace AcTools.Core
 {
@@ -64,6 +65,19 @@ namespace AcTools.Core
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.Name = "AcForm";
             this.ResumeLayout(false);
+        }
+
+
+        [DllImport("user32.dll", EntryPoint = "MoveWindow")]
+        private static extern bool MoveWindow(IntPtr hWnd, int x, int y, int w, int h, bool repaint);
+
+        protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
+        {
+            // Run the base functionality
+            base.SetBoundsCore(x, y, width, height, specified);
+
+            // Set the width and height to the requested values, ignoring the size checks from the base functionality
+            MoveWindow(Handle, x, y, width, height, true);
         }
 
         public void HookUnHook(Button btnHook = null)
