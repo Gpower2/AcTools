@@ -188,7 +188,7 @@ int __stdcall dimzon_avs_destroy(SafeStruct** ppstr)
 
 	if(pstr->environment)
 	{
-		delete pstr->environment;
+		pstr->environment->~IScriptEnvironment();
 		pstr->environment = NULL;
 	}
 
