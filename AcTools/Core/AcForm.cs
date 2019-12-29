@@ -21,48 +21,66 @@ namespace AcTools.Core
 
     public partial class AcForm : Form
     {
-        protected FormHookState _HookState = FormHookState.Hooked;
-        protected ToolTip _ToolTip = new ToolTip();        
-        protected Form _MainForm;
-        protected CultureInfo _InvariantCulture = CultureInfo.InvariantCulture;
-        private System.ComponentModel.IContainer components;
-
-        public Form MainForm
+        /// <summary>
+        /// Gets the form's border width in pixels
+        /// </summary>
+        public Int32 BorderWidth
         {
-            get
-            {
-                return _MainForm;
-            }
-            set
-            {
-                _MainForm = value;
-                MdiParent = value;
-            }
+            get { return Convert.ToInt32(Convert.ToDouble((this.Width - this.ClientSize.Width)) / 2.0); }
         }
 
-        public ToolTip Tooltip
+        /// <summary>
+        /// Gets the form's Title Bar Height in pixels
+        /// </summary>
+        public Int32 TitlebarHeight
         {
-            get
-            {
-                return _ToolTip;
-            }
+            get { return this.Height - this.ClientSize.Height - 2 * BorderWidth; }
+        }
+
+        public ToolTip Tooltip { get; } = new ToolTip();
+
+        protected FormHookState HookState = FormHookState.Hooked;        
+        
+        protected CultureInfo InvariantCulture = CultureInfo.InvariantCulture;
+
+        public AcForm()
+            : base()
+        {
+            this.DoubleBuffered = true;
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // AcForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.Name = "AcForm";
+            this.ResumeLayout(false);
         }
 
         public void HookUnHook(Button btnHook = null)
         {
-            if (_HookState == FormHookState.Hooked)
+            if (HookState == FormHookState.Hooked)
             {
                 this.MdiParent = null;
-                _HookState = FormHookState.Unhooked;
+                HookState = FormHookState.Unhooked;
             }
             else
             {
-                this.MdiParent = _MainForm;
-                _HookState = FormHookState.Hooked;
+                this.MdiParent = Application.OpenForms[0];
+                HookState = FormHookState.Hooked;
             }
             if (btnHook != null)
             {
-                if (_HookState == FormHookState.Unhooked)
+                if (HookState == FormHookState.Unhooked)
                 {
                     btnHook.Text = "Hook";
                 }
@@ -322,36 +340,14 @@ namespace AcTools.Core
             return null;
         }
 
-        private void InitializeComponent()
-        {
-            this.components = new System.ComponentModel.Container();
-            this._ToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.SuspendLayout();
-            // 
-            // AcForm
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Name = "AcForm";
-            this.DoubleBuffered = true;
-            this.ResumeLayout(false);
-        }
-
-        public AcForm()
-            : base()
-        {
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-        }
-
         /// <summary>
         /// Shows another form with the same Mdi Parent
         /// </summary>
         /// <param name="frm">the form to show</param>
         public void ShowForm(AcForm frm)
         {
-            frm.MainForm = this._MainForm;
             frm.MdiParent = this.MdiParent;
-            frm._HookState = this._HookState;
+            frm.HookState = this.HookState;
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.Show();
             frm.Focus();

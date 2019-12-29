@@ -53,7 +53,7 @@ namespace AcTools.Forms
         private void btnHook_Click(object sender, EventArgs e)
         {
             HookUnHook();
-            if (_HookState == FormHookState.Unhooked)
+            if (HookState == FormHookState.Unhooked)
             {
                 btnHook.Text = "Hook";
             }

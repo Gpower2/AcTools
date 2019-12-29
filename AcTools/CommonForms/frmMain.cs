@@ -38,7 +38,7 @@ namespace AcTools.CommonForms
         /// <param name="frm"></param>
         public void ShowChildForm(AcForm frm)
         {
-            frm.MainForm = this;
+            frm.MdiParent = this;
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.Show();
         }

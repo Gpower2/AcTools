@@ -461,7 +461,7 @@ namespace AcTools.Forms
             try
             {
                 HookUnHook();
-                if (_HookState == FormHookState.Unhooked)
+                if (HookState == FormHookState.Unhooked)
                 {
                     btnHook.Text = "Hook";
                 }
