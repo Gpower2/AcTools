@@ -76,30 +76,6 @@ namespace AcControls.AcMessageBox
         private static DialogResult ShowForm(AcMessageBoxForm msgForm)
         {
             return msgForm.ShowDialog();
-
-            //DialogResult res = DialogResult.None;
-            //res = msgForm.ShowDialog();
-            //try
-            //{
-            //    //try to set the focus to the main form of the application
-            //    if (Application.OpenForms.Count > 0)
-            //    {
-            //        if (Application.OpenForms[0].IsHandleCreated)
-            //        {
-            //            Application.OpenForms[0].Invoke((MethodInvoker)delegate { Application.OpenForms[0].Select(); });
-            //        }
-            //        else
-            //        {
-            //            Application.OpenForms[0].Select();
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    //If it's a cross thread operation, or fails otherwise, just debug write it
-            //    Debug.WriteLine(ex);
-            //}
-            //return res;
         }
 
         private enum AcMessageBoxButtonTypes
@@ -426,31 +402,31 @@ namespace AcControls.AcMessageBox
                     {
                         case AcMessageBoxButtonTypes.Abort:
                             this.DialogResult = System.Windows.Forms.DialogResult.Abort;
-                            this.Close();
+                            this.Hide();
                             break;
                         case AcMessageBoxButtonTypes.Cancel:
                             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-                            this.Close();
+                            this.Hide();
                             break;
                         case AcMessageBoxButtonTypes.Ignore:
                             this.DialogResult = System.Windows.Forms.DialogResult.Ignore;
-                            this.Close();
+                            this.Hide();
                             break;
                         case AcMessageBoxButtonTypes.No:
                             this.DialogResult = System.Windows.Forms.DialogResult.No;
-                            this.Close();
+                            this.Hide();
                             break;
                         case AcMessageBoxButtonTypes.OK:
                             this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                            this.Close();
+                            this.Hide();
                             break;
                         case AcMessageBoxButtonTypes.Retry:
                             this.DialogResult = System.Windows.Forms.DialogResult.Retry;
-                            this.Close();
+                            this.Hide();
                             break;
                         case AcMessageBoxButtonTypes.Yes:
                             this.DialogResult = System.Windows.Forms.DialogResult.Yes;
-                            this.Close();
+                            this.Hide();
                             break;
                         case AcMessageBoxButtonTypes.Copy:
                             this.DialogResult = System.Windows.Forms.DialogResult.None;

@@ -332,6 +332,9 @@
             this.picVideo.DragDrop += new System.Windows.Forms.DragEventHandler(this.picVideo_DragDrop);
             this.picVideo.DragEnter += new System.Windows.Forms.DragEventHandler(this.picVideo_DragEnter);
             this.picVideo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picVideo_MouseClick);
+            this.picVideo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picVideo_MouseDown);
+            this.picVideo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picVideo_MouseMove);
+            this.picVideo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picVideo_MouseUp);
             // 
             // chkAlwaysOnTop
             // 
@@ -355,7 +358,7 @@
             this.btnEditVideoFile.UseVisualStyleBackColor = true;
             this.btnEditVideoFile.Click += new System.EventHandler(this.btnEditVideoFile_Click);
             // 
-            // VideoPlayerForm
+            // frmVideoPlayer
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,7 +395,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(780, 500);
-            this.Name = "VideoPlayerForm";
+            this.Name = "frmVideoPlayer";
             this.Text = "VideoPlayerForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VideoPlayerForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VideoPlayerForm_KeyDown);

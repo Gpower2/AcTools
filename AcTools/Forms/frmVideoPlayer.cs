@@ -1124,37 +1124,78 @@ namespace AcTools.Forms
             }
         }
 
+        private Point? _MouseDownPoint = null;
+
+        private void picVideo_MouseDown(object sender, MouseEventArgs e)
+        {
+            // Check if the Left Mouse Button was pressed
+            if (e.Button == MouseButtons.Left)
+            {
+                _MouseDownPoint = new Point(e.X, e.Y);
+            }
+        }
+
+        private void picVideo_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Reset the Mouse Down Point
+            _MouseDownPoint = null;
+        }
+
+        private void picVideo_MouseMove(object sender, MouseEventArgs e)
+        {
+            // Check if the Left Mouse Button was pressed
+            // and that the MouseDown Point has value (the Left button is pressed)
+            if (e.Button == MouseButtons.Left
+                && _MouseDownPoint.HasValue)
+            {
+                // Determine the difference in location
+                int dX = _MouseDownPoint.Value.X - e.X;
+                int dY = _MouseDownPoint.Value.Y - e.Y;
+
+                // Form final location
+                int finalX = this.Location.X - dX;
+                int finalY = this.Location.Y - dY;
+
+                // Move the form
+                this.Location = new Point(finalX, finalY);
+            }
+        }
+
         private void VideoPlayerForm_Resize(object sender, EventArgs e)
         {
             try
             {
-                if (videoOpened)
+                //Ensure that the video picture box will always have the correct size
+                int startHeight = this.Height - (this.MinimumSize.Height - origPicVideoHeight);
+                int startWidth = this.Width - (this.MinimumSize.Width - origPicVideoWidth);
+                //picVideo.Height = this.Height - (this.MinimumSize.Height - origPicVideoHeight);
+                //int height = picVideo.Height;
+
+                int height = videoOpened ?
+                    Convert.ToInt32(Convert.ToDouble(startWidth * avs.Clip.VideoHeight) / Convert.ToDouble(avs.Clip.VideoWidth))
+                    : startHeight;
+
+                int width = videoOpened ? 
+                    Convert.ToInt32(Convert.ToDouble(startHeight * avs.Clip.VideoWidth) / Convert.ToDouble(avs.Clip.VideoHeight))
+                    : startWidth;
+
+                if (startWidth > width)
                 {
-                    //Ensure that the video picture box will always have the correct size
-                    int startHeight = this.Height - (this.MinimumSize.Height - origPicVideoHeight);
-                    int startWidth = this.Width - (this.MinimumSize.Width - origPicVideoWidth);
-                    //picVideo.Height = this.Height - (this.MinimumSize.Height - origPicVideoHeight);
-                    //int height = picVideo.Height;
-                    int height = Convert.ToInt32(Convert.ToDouble(startWidth * avs.Clip.VideoHeight) / Convert.ToDouble(avs.Clip.VideoWidth));
-                    int width = Convert.ToInt32(Convert.ToDouble(startHeight * avs.Clip.VideoWidth) / Convert.ToDouble(avs.Clip.VideoHeight));
-                    if (startWidth > width)
-                    {
-                        picVideo.Height = startHeight;
-                        picVideo.Width = width;
-                    }
-                    else if (startWidth < width)
-                    {
-                        picVideo.Height = height;
-                        picVideo.Width = startWidth;
-                    }
-                    else
-                    {
-                        picVideo.Height = startHeight;
-                        picVideo.Width = startWidth;
-                    }
-                    picVideo.Location = new Point(2, 2);
-                    picVideo.Refresh();
+                    picVideo.Height = startHeight;
+                    picVideo.Width = width;
                 }
+                else if (startWidth < width)
+                {
+                    picVideo.Height = height;
+                    picVideo.Width = startWidth;
+                }
+                else
+                {
+                    picVideo.Height = startHeight;
+                    picVideo.Width = startWidth;
+                }
+                picVideo.Location = new Point(2, 2);
+                picVideo.Refresh();
             }
             catch (Exception ex)
             {
