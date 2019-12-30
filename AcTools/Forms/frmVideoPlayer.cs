@@ -408,6 +408,11 @@ namespace AcTools.Forms
         {
             try
             {
+                if (_FromOpeningVideo)
+                {
+                    return;
+                }
+
                 ChangeVideoFrame(trackVideo.Value, false);
             }
             catch (Exception ex)
@@ -790,7 +795,7 @@ namespace AcTools.Forms
         {
             try
             {
-                if (txtVideoFile.Text.Length > 0)
+                if (!string.IsNullOrWhiteSpace(txtVideoFile.Text))
                 {
                     this.Cursor = Cursors.WaitCursor;
                     int prevFrame = trackVideo.Value;
@@ -798,18 +803,54 @@ namespace AcTools.Forms
                     {
                         avs.Dispose();
                     }
-                    avs = AvsFile.OpenScriptFile(txtVideoFile.Text);
+
+                    _FromOpeningVideo = true;
+                    using (Task t = Task.Factory.StartNew(() =>
+                    {
+                        avs = AvsFile.OpenScriptFile(txtVideoFile.Text);
+                    }))
+                    {
+                        while (!t.IsCompleted)
+                        {
+                            Application.DoEvents();
+                        }
+                        if (t.Exception != null)
+                        {
+                            Application.DoEvents();
+                            if (t.Exception.InnerException != null)
+                            {
+                                throw t.Exception.InnerException;
+                            }
+                            else
+                            {
+                                throw t.Exception;
+                            }
+                        }
+                    }
+                    videoOpened = true;
+
+                    this.Size = new Size(
+                        avs.Clip.VideoWidth + (this.MinimumSize.Width - origPicVideoWidth)
+                        , avs.Clip.VideoHeight + (this.MinimumSize.Height - origPicVideoHeight)
+                    );
+
+                    ResizePictureBox();
+
+                    this.frameRate = Convert.ToDecimal(avs.Clip.Raten) / Convert.ToDecimal(avs.Clip.Rated);
                     trackVideo.Maximum = avs.Clip.NumberOfFrames - 1;
                     trackVideo.Minimum = 0;
                     trackVideo.Value = prevFrame;
-                    videoOpened = true;
-                    trackVideo_ValueChanged(null, null);
+                    cmbSize.SelectedIndex = 5;
+                    ChangeVideoFrame(prevFrame, false);
+
+                    _FromOpeningVideo = false;
                     this.Cursor = Cursors.Default;
                 }
             }
             catch (Exception ex)
             {
                 videoOpened = false;
+                _FromOpeningVideo = false;
                 this.Cursor = Cursors.Default;
                 ShowExceptionMessage(ex, "Error reloading video!");
             }
