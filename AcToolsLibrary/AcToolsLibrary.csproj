@@ -199,6 +199,7 @@
     <Compile Include="Core\Video\VideoPlayerUpdateData.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\Video\VideoProviders\VapourSynth\VapourSynthClip.cs" />
     <Compile Include="Core\Video\VideoResolution.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -10,6 +10,7 @@ using System.Reflection;
 using AcTools.Core;
 using AcToolsLibrary.Common.Windows;
 using System.Threading;
+using AcToolsLibrary.Core.Video.VideoProviders.VapourSynth;
 
 namespace AcTools.CommonForms
 {
@@ -44,15 +45,25 @@ namespace AcTools.CommonForms
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 1000; i++)
+            try
             {
-                Point originalMousePosition = Cursor.Position;
-                Int32 arrowX = 1080;
-                Int32 arrowY = 540;
-                AcMouseHelper.MouseMove(arrowX, arrowY);
-                AcMouseHelper.MouseLeftClick();
-                AcMouseHelper.MouseMove(originalMousePosition.X, originalMousePosition.Y);
-                Thread.Sleep(20);
+                VapourSynthClip vsClip = new VapourSynthClip();
+                vsClip.OpenScript(@"H:\AnimeClipse\gto\GTO\GTO Volume 1\VIDEO_TS\VTS_01_1.vpy");
+
+                //for (int i = 0; i < 1000; i++)
+                //{
+                //    Point originalMousePosition = Cursor.Position;
+                //    Int32 arrowX = 1080;
+                //    Int32 arrowY = 540;
+                //    AcMouseHelper.MouseMove(arrowX, arrowY);
+                //    AcMouseHelper.MouseLeftClick();
+                //    AcMouseHelper.MouseMove(originalMousePosition.X, originalMousePosition.Y);
+                //    Thread.Sleep(20);
+                //}
+            }
+            catch (Exception ex)
+            {
+                ShowExceptionMessage(ex);
             }
         }
     }
