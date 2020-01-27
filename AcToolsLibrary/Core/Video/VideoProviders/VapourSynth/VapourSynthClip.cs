@@ -152,14 +152,14 @@ namespace AcToolsLibrary.Core.Video.VideoProviders.VapourSynth
             if (res == 0)
             {
                 string error = vsscript_getError(vsScriptHandle);
-                throw new Exception($"Failed to call {nameof(vsscript_createScript)} with error: '{error}'!");
+                throw new Exception($"Failed to call {nameof(vsscript_evaluateFile)} with error: '{error}'!");
             }
 
             IntPtr vsNodeHandle = vsscript_getOutput(vsScriptHandle, 0);
             if (vsNodeHandle == IntPtr.Zero)
             {
                 string error = vsscript_getError(vsScriptHandle);
-                throw new Exception($"Failed to call {nameof(vsscript_createScript)} with error: '{error}'!");
+                throw new Exception($"Failed to call {nameof(vsscript_getOutput)} with error: '{error}'!");
             }
 
             //g_vsinfo = vsApiHandle->getVideoInfo(vsNodeHandle);

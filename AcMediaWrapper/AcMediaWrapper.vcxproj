@@ -147,15 +147,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="avisynth.h" />
-    <ClInclude Include="internal.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="AviSynthProvider.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="VapourSynth\AcVapourSynthWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AviSynth\258\Avisynth.h" />
+    <ClInclude Include="AviSynth\260\Avisynth.h" />
+    <ClInclude Include="AviSynth\AVSPlus\avisynth.h" />
+    <ClInclude Include="AviSynth\AVSPlus\avs\capi.h" />
+    <ClInclude Include="AviSynth\AVSPlus\avs\config.h" />
+    <ClInclude Include="AviSynth\AVSPlus\avs\cpuid.h" />
+    <ClInclude Include="AviSynth\AVSPlus\avs\types.h" />
+    <ClInclude Include="VapourSynth\VapourSynth.h" />
+    <ClInclude Include="VapourSynth\VSHelper.h" />
+    <ClInclude Include="VapourSynth\VSScript.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
