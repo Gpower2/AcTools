@@ -586,12 +586,15 @@ namespace AcTools.Forms
             {
                 throw new Exception("Please load timecodes first!");
             }
-             // check if duplicates are needed
+            // check if duplicates are needed
             if (!_Kienzan.VideoFrames.IsCFR)
             {
                 if (!_Kienzan.HasDuplicates)
                 {
-                    throw new Exception("Please load duplicates first!");
+                    if (ShowQuestion("No duplicates were loaded! Do you want to continue?") != DialogResult.Yes)
+                    {
+                        return;
+                    }
                 }
             }
             if (!_Kienzan.HasSections && !ignoreSections)
@@ -687,18 +690,27 @@ namespace AcTools.Forms
             // check if duplicates are necessary
             if (!_Kienzan.VideoFrames.IsCFR)
             {
+                bool duplicatesProvided = !string.IsNullOrWhiteSpace(txtDuplicatesFile.Text) && File.Exists(txtDuplicatesFile.Text);
+                bool duplicatesGenerated = false;
+
                 // Check whether to generate duplicates or not
-                if (String.IsNullOrWhiteSpace(txtDuplicatesFile.Text) || !File.Exists(txtDuplicatesFile.Text))
+                if (!duplicatesProvided
+                    && ShowQuestion("No duplicates were provided! Do you want to generate them?") == DialogResult.Yes)
                 {
                     if (!_CancelThread)
                     {
                         GenerateDuplicates();
+                        duplicatesGenerated = true;
                     }
                 }
+
                 // Load the duplicates
-                if (!_CancelThread)
+                if (duplicatesProvided || duplicatesGenerated)
                 {
-                    LoadDuplicates();
+                    if (!_CancelThread)
+                    {
+                        LoadDuplicates();
+                    }
                 }
             }
 
