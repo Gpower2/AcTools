@@ -23,19 +23,20 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>AcMediaWrapper</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -149,12 +150,12 @@
   <ItemGroup>
     <ClCompile Include="AviSynthProvider.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="VapourSynth\AcVapourSynthWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="avisynth.h" />
     <ClInclude Include="AviSynth\258\Avisynth.h" />
     <ClInclude Include="AviSynth\260\Avisynth.h" />
     <ClInclude Include="AviSynth\AVSPlus\avisynth.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="AviSynth\AVSPlus\avs\config.h" />
     <ClInclude Include="AviSynth\AVSPlus\avs\cpuid.h" />
     <ClInclude Include="AviSynth\AVSPlus\avs\types.h" />
+    <ClInclude Include="internal.h" />
     <ClInclude Include="VapourSynth\VapourSynth.h" />
     <ClInclude Include="VapourSynth\VSHelper.h" />
     <ClInclude Include="VapourSynth\VSScript.h" />
